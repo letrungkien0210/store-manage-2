@@ -36,8 +36,15 @@ import createSagaMiddleware from 'redux-saga';
 import { adminReducer, crudSaga, CrudRoute, simpleRestClient, jsonServerRestClient } from 'admin-on-rest';
 
 // your app components
+import Master from './layouts/Master';
 import Layout from './layouts/MyLayout';
+
 import Welcome from './pages/Welcome';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Notfound from './pages/Notfound';
+
+
 
 import { PostList, PostCreate, PostEdit } from './components/posts';
 // import { CommentList, CommentEdit, CommentCreate } from './Comment';
@@ -66,9 +73,16 @@ const history = syncHistoryWithStore(hashHistory, store);
 const App = () => (
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Layout}>
-        <IndexRoute component={Welcome} restClient={restClient} />
-        <CrudRoute key="posts" path="posts" list={PostList} create={PostCreate} edit={PostEdit} remove={Delete} />
+      <Route path="/" component={Master}>
+        <IndexRoute component={Welcome} />
+        <Route path='login' component={Login} />
+
+        <Route path='admin' component={Layout}>
+          <IndexRoute component={Dashboard} restClient={restClient} />
+          <CrudRoute key="posts" path="/admin/posts" list={PostList} create={PostCreate} edit={PostEdit} remove={Delete} />
+        </Route>
+
+        <Route path='*' component={Notfound} />
       </Route>
     </Router>
   </Provider>

@@ -20,9 +20,7 @@ import Notification from './Notification';
 const MyMenu = () => (
   <Paper style={{ flex: '0 0 15em', order: -1 }}>
     <List>
-      <ListItem containerElement={<Link to={`/posts`} />} primaryText="Posts" />
-      <ListItem containerElement={<Link to={`/comments`} />} primaryText="Comments" />
-      <ListItem containerElement={<Link to={`/users`} />} primaryText="Users" />
+      <ListItem containerElement={<Link to={`/admin/posts`} />} primaryText="Posts" />
     </List>
   </Paper>
 );

@@ -47,6 +47,7 @@ class Login extends Component {
         /><br />
         <RaisedButton
           label="Login"
+          href="#/admin"
         />
       </div>
     );
