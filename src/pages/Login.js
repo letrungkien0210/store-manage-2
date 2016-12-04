@@ -20,35 +20,54 @@ class Login extends Component {
     const styles = {
       root: {
         backgroundColor: grey200,
-        textAlign: 'center',
         padding: 10,
-      },
-      h3: {
-        margin: 0,
-        padding: 0,
-        fontWeight: typography.fontWeightLight,
-        fontSize: 22,
+        margin: "auto",
+        width: "30%"
       },
       button: {
-        marginTop: 32,
+        margin: 8
       },
+      title:{
+        marginLeft: 154
+      },
+      form:{
+        textAlign: "center"
+      },
+      field:{
+        fontSize: 24
+      }
     };
 
     return (
       <div style={styles.root}>
-        <TextField
-          floatingLabelText="User ID"
-          hintText="User ID"
-        /><br />
-        <TextField
-          hintText="Password"
-          floatingLabelText="Password"
-          type="password"
-        /><br />
-        <RaisedButton
-          label="Login"
-          href="#/admin"
-        />
+        <h1 style={styles.title}>Login</h1>
+        <form style={styles.form}>
+          <div>
+            <TextField
+              floatingLabelText="User ID"
+              hintText="User ID"
+              style={styles.field}
+            /><br />
+            <TextField
+              hintText="Password"
+              floatingLabelText="Password"
+              type="password"
+              style={styles.field}
+            />
+          </div>
+          <RaisedButton
+            label="Login"
+            href="#/admin"
+            primary={true}
+            style={styles.button}
+          />
+          <RaisedButton
+            label="Cancel"
+            href="#/"
+            style={styles.button}
+          />
+        </form>
+        
       </div>
     );
   }

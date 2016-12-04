@@ -148,12 +148,19 @@ import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
 
 
 class Welcome extends Component {
+
   render() {
+    let imgUrl = 'images/team-work.jpg';
+
     const styles = {
       root: {
         backgroundColor: grey200,
-        textAlign: 'center',
-        padding: 10
+        textAlign: 'right',
+        padding: 10,
+        backgroundImage: "url("+ imgUrl +")",
+        height: "96vh",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center"
       },
       h3: {
         margin: 0,
@@ -162,17 +169,29 @@ class Welcome extends Component {
         fontSize: 22,
       },
       button: {
-        marginTop: 32,
+        margin: 8
       },
     };
 
     return (
-      <div style={styles.root}>
-        <img src="images/team-work.jpg" />
-        <RaisedButton
-          label="Sign-in"
-          href="#/login"
-        />
+      <div>
+        <div style={styles.root}>
+          <div>
+            <RaisedButton
+              label="Sign-in"
+              href="#/login"
+              primary={true}
+              style={styles.button}
+            />
+            <RaisedButton
+              label="Sign-up"
+              href="#/login"
+              secondary={true}
+              style={styles.button}
+            />
+          </div>
+          
+        </div>
       </div>
     );
   }
