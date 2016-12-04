@@ -145,6 +145,8 @@ import spacing from 'material-ui/styles/spacing';
 import typography from 'material-ui/styles/typography';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import {cyan500, grey200, darkWhite} from 'material-ui/styles/colors';
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
 
 
 class Welcome extends Component {
@@ -156,42 +158,38 @@ class Welcome extends Component {
       root: {
         backgroundColor: grey200,
         textAlign: 'right',
-        padding: 10,
         backgroundImage: "url("+ imgUrl +")",
-        height: "96vh",
+        height: "100vh",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center"
-      },
-      h3: {
-        margin: 0,
-        padding: 0,
-        fontWeight: typography.fontWeightLight,
-        fontSize: 22,
-      },
-      button: {
-        margin: 8
-      },
+      }
     };
 
     return (
       <div>
         <div style={styles.root}>
-          <div>
-            <RaisedButton
-              label="Sign-in"
-              href="#/login"
-              primary={true}
-              style={styles.button}
-            />
-            <RaisedButton
-              label="Sign-up"
-              href="#/login"
-              secondary={true}
-              style={styles.button}
-            />
-          </div>
-          
+          <AppBar
+            title=""
+            iconElementRight={<LoginButton />}
+          />          
         </div>
+      </div>
+    );
+  }
+}
+
+class LoginButton extends Component{
+  render() {
+    const styles = {
+      button: {
+        margin: 8,
+        color: 'white'
+      }
+    };
+    return (
+      <div>
+        <FlatButton label="Sign-in" style={styles.button} href="#/login"/>
+        <FlatButton label="Sign-up" style={styles.button} href="#"/>
       </div>
     );
   }
